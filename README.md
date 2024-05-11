@@ -21,7 +21,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Installation
 
 1. Clone the repository or download the ZIP file.
-2. Open the `fractal-tournament.htm` file in your web browser.
+2. Open the `index.htm` file in your web browser.
 
 ## Usage
 
