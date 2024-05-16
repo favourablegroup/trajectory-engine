@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const chart = new Chart(ctx, {
                     type: 'pie',
                     data: {
+                        labels: ['R', '1', '2'],
                         datasets: [{
                             data: ratios,
                             backgroundColor: ['#808080', '#a0a0a0', '#c0c0c0'], // Shades of grey
@@ -66,7 +67,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     },
                     options: {
                         responsive: true,
-                        maintainAspectRatio: false
+                        maintainAspectRatio: false,
+                        legend: {
+                            display: false // Hide the legend
+                        },
                     }
                 });
             
