@@ -119,10 +119,77 @@
             border-radius: 50%;
             margin: 5px;
         }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 50% opacity black */
+            z-index: 1; /* Ensure it's above other content */
+        }
+
+        .modal-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color:#202020;
+        }
+
+        nav {
+            list-style-type: none;
+            padding: 10px;
+        }
+
+        nav li {
+            padding: 10px 20px;
+            text-decoration: none;
+            color: white!important;
+        }
+
+        nav li:hover {
+            background-color: #666;
+        }
     </style>
 </head>
 <body>
     <h1>Welcome to the Fractal Tournament!</h1>
+            <!-- Modal Trigger Button -->
+            <button id="menuButton">Menu</button>
+            <!-- Modal Structure -->
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <nav>
+                        <ul>
+                            <li><a href="index.htm" style="color:#ffffff">Fractal Tournament</a></li>
+                            <li><a href="results-display.htm" style="color:#ffffff">Results Display</a></li>
+                            <li><a href="results-prize-totals.htm" style="color:#ffffff">Results Prize Totals</a></li>
+                            <li><a href="results-prize-ratios.htm" style="color:#ffffff">Results Prize Ratios</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>    
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const menuButton = document.getElementById('menuButton');
+                const modal = document.getElementById('modal');
+                const closeButton = document.createElement('button');
+                closeButton.textContent = 'Close';
+                closeButton.addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            
+                menuButton.addEventListener('click', function() {
+                    modal.style.display = 'block';
+                });
+            
+                // Append the close button to the modal content
+                modal.querySelector('.modal-content').appendChild(closeButton);
+            });
+        </script>
     <p>Here your fractal trajectories are created.</p>
 
     <div id="scores">
@@ -149,12 +216,12 @@
     <!-- Example winner display -->
     <div id="winner"></div>
 
-<div id="modal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; margin:0px; padding:0px; background: rgba(0,0,0,0.5);">
-    <div style="background-color: #232323; margin: 15% auto; padding:20px; border:1px solid #888; width:50%;">
-        <p id="countdown">70</p>
-        <p id="entryCodes"></p> <!-- Entry code display -->
+    <div id="modal" style="display:none; position:fixed; z-index:1000; left:0; top:0; width:100%; height:100%; overflow:auto; margin:0px; padding:0px; background: rgba(0,0,0,0.5);">
+        <div style="background-color: #232323; margin: 15% auto; padding:20px; border:1px solid #888; width:50%;">
+            <p id="countdown">70</p>
+            <p id="entryCodes"></p> <!-- Entry code display -->
+        </div>
     </div>
-</div>
 
 <script>
     function generateEntryCode() {
