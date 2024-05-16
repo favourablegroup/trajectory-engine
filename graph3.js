@@ -57,7 +57,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 const chart = new Chart(ctx, {
                     type: 'pie',
                     data: {
-                        labels: ['Rematch', 'Player 1', 'Player 2'],
                         datasets: [{
                             data: ratios,
                             backgroundColor: ['#808080', '#a0a0a0', '#c0c0c0'], // Shades of grey
